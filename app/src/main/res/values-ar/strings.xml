@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">نيبولا إيديتور</string>
+
+    <string name="undo">تراجع</string>
+    <string name="redo">إعادة</string>
+    <string name="export">تصدير</string>
+    <string name="capture_frame">التقاط إطار</string>
+    <string name="delete_clip">حذف</string>
+    <string name="add_media">إضافة وسائط</string>
+    <string name="keyframe_anim">إطارات مفتاحية</string>
+    <string name="rename_project">تغيير اسم المشروع</string>
+
+    <string name="aspect_ratio">نسبة الصورة</string>
+    <string name="custom_ratio">نسبة مخصصة</string>
+    <string name="crop">اقتصاص</string>
+    <string name="flip_rotate">قلب وتدوير</string>
+    <string name="flip_horizontal">قلب أفقي</string>
+    <string name="flip_vertical">قلب عمودي</string>
+    <string name="rotate_90_cw">تدوير 90° يمين</string>
+    <string name="rotate_90_ccw">تدوير 90° يسار</string>
+    <string name="rotate_180">تدوير 180°</string>
+    <string name="add_audio">إضافة صوت</string>
+    <string name="record_mic">تسجيل (مايكروفون)</string>
+    <string name="import_audio">استيراد ملف صوتي</string>
+    <string name="import_from_video">استخراج من فيديو (الاستديو)</string>
+    <string name="add_link">إضافة رابط (يوتيوب / تيك توك / ريلز)</string>
+    <string name="recent_audio">الأصوات الأخيرة</string>
+    <string name="split">تقسيم</string>
+    <string name="reverse">عكس</string>
+    <string name="background">خلفية</string>
+    <string name="replace">استبدال</string>
+    <string name="duplicate">تكرار</string>
+    <string name="copy">نسخ</string>
+    <string name="freeze">تجميد إطار</string>
+    <string name="pip">صورة داخل صورة</string>
+    <string name="stickers">ملصقات</string>
+    <string name="speed_control">التحكم بالسرعة</string>
+    <string name="maintain_pitch">الحفاظ على طبقة الصوت</string>
+    <string name="apply">تطبيق</string>
+    <string name="search">بحث…</string>
+
+    <string name="export_video">تصدير الفيديو</string>
+    <string name="format">الصيغة</string>
+    <string name="quality">الجودة</string>
+    <string name="frame_rate">معدل الإطارات</string>
+    <string name="start_export">بدء التصدير</string>
+    <string name="original_quality_export">تصدير الجودة الأصلية</string>
+    <string name="original_quality_sub">بدون فقدان جودة · ترميز بدون خسائر · معالجة خلفية</string>
+
+    <string name="black_screen">شاشة سوداء</string>
+    <string name="import_video">استيراد فيديو</string>
+    <string name="import_image">استيراد صورة</string>
+    <string name="download_failed">فشل التنزيل. تحقق من الرابط والاتصال.</string>
+
+    <string name="select_clip_first">الرجاء تحديد مقطع أولاً</string>
+
+    <string name="volume">مستوى الصوت</string>
+    <string name="opacity">الشفافية</string>
+    <string name="scale">الحجم</string>
+    <string name="rotation">الدوران</string>
+    <string name="fade_in">تلاشي الدخول</string>
+    <string name="fade_out">تلاشي الخروج</string>
+
+    <string name="add_track">إضافة مسار</string>
+    <string name="zoom_in">تكبير</string>
+    <string name="zoom_out">تصغير</string>
+    <string name="magnet_snap">المغناطيس</string>
+
+    <string name="loading">جار التحميل…</string>
+</resources>

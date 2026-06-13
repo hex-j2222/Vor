@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Font XML references.
+  Place the following TTF files in app/src/main/res/font/:
+    - inter.ttf             (Inter Regular)
+    - inter_medium.ttf      (Inter Medium)
+    - inter_semibold.ttf    (Inter SemiBold)
+    - space_grotesk.ttf     (Space Grotesk Regular)
+    - space_grotesk_semibold.ttf
+    - space_grotesk_bold.ttf
+
+  Download Inter: https://fonts.google.com/specimen/Inter
+  Download Space Grotesk: https://fonts.google.com/specimen/Space+Grotesk
+
+  Then register in build.gradle or use the font resource directly.
+  The styles/themes already reference @font/inter etc.
+-->
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font app:fontStyle="normal" app:fontWeight="400" app:font="@font/inter"/>
+    <font app:fontStyle="normal" app:fontWeight="500" app:font="@font/inter_medium"/>
+    <font app:fontStyle="normal" app:fontWeight="600" app:font="@font/inter_semibold"/>
+</font-family>

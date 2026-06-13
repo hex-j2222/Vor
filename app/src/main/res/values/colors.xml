@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ── Nebula color system ── -->
+
+    <!-- Void backgrounds -->
+    <color name="bg_void">#FF05060F</color>
+    <color name="bg_deep">#FF080B18</color>
+    <color name="bg_layer">#FF0D1225</color>
+    <color name="bg_panel">#FF111830</color>
+    <color name="bg_card">#FF16203A</color>
+    <color name="bg_hover">#FF1E2D4D</color>
+    <color name="bg_active">#FF243457</color>
+
+    <!-- Borders -->
+    <color name="border_dim">#2E5078DC</color>
+    <color name="border_mid">#476496FF</color>
+    <color name="border_bright">#7382B4FF</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFE8EEFF</color>
+    <color name="text_secondary">#FF8A9EC5</color>
+    <color name="text_muted">#FF4A5A7A</color>
+
+    <!-- Accent colors -->
+    <color name="accent_nova">#FF6C8FFF</color>
+    <color name="accent_pulsar">#FFA855F7</color>
+    <color name="accent_quasar">#FF22D3EE</color>
+    <color name="accent_flare">#FFF472B6</color>
+    <color name="accent_star">#FFFCD34D</color>
+
+    <!-- Track colors -->
+    <color name="track_video">#FF3B6EEF</color>
+    <color name="track_audio">#FF059669</color>
+    <color name="track_text">#FFD97706</color>
+    <color name="track_fx">#FFDB2777</color>
+    <color name="track_sticker">#FF7C3AED</color>
+
+    <!-- Light theme overrides -->
+    <color name="bg_void_light">#FFF0F3FF</color>
+    <color name="bg_panel_light">#FFD3DAF4</color>
+    <color name="text_primary_light">#FF0D1630</color>
+    <color name="text_secondary_light">#FF3A4A70</color>
+    <color name="text_muted_light">#FF7A8AAA</color>
+
+    <!-- System -->
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="transparent">#00000000</color>
+</resources>

@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_void">
+
+    <!-- ══════════════════════════════════════════
+         TOP BAR
+    ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:background="@color/bg_panel"
+        android:elevation="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Logo -->
+        <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/ic_nebula_logo"
+            android:contentDescription="Nebula"
+            android:layout_marginEnd="4dp" />
+
+        <!-- Project name -->
+        <TextView
+            android:id="@+id/tvProjectName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="New Project"
+            android:textColor="@color/text_primary"
+            android:textSize="14sp"
+            
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:background="@drawable/bg_btn_transparent"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Divider -->
+        <View android:layout_width="1dp" android:layout_height="24dp"
+            android:background="@color/border_dim" android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
+
+        <!-- Undo -->
+        <ImageButton
+            android:id="@+id/btnUndo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_undo"
+            android:background="@drawable/bg_btn_icon"
+            android:contentDescription="@string/undo"
+            android:tint="@color/text_secondary" />
+
+        <!-- Redo -->
+        <ImageButton
+            android:id="@+id/btnRedo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_redo"
+            android:background="@drawable/bg_btn_icon"
+            android:contentDescription="@string/redo"
+            android:tint="@color/text_secondary" />
+
+        <!-- Keyframe / Anim pin -->
+        <ImageButton
+            android:id="@+id/btnKeyframeAnim"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_keyframe"
+            android:background="@drawable/bg_btn_icon"
+            android:contentDescription="@string/keyframe_anim"
+            android:tint="@color/text_secondary" />
+
+        <!-- Capture frame -->
+        <ImageButton
+            android:id="@+id/btnCaptureFrame"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_camera"
+            android:background="@drawable/bg_btn_icon"
+            android:contentDescription="@string/capture_frame"
+            android:tint="@color/text_secondary" />
+
+        <!-- Delete clip -->
+        <ImageButton
+            android:id="@+id/btnDeleteClip"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_delete"
+            android:background="@drawable/bg_btn_icon"
+            android:contentDescription="@string/delete_clip"
+            android:tint="@color/text_secondary" />
+
+        <!-- Add media -->
+        <ImageButton
+            android:id="@+id/btnAddMedia"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@drawable/ic_add_media"
+            android:background="@drawable/bg_btn_icon"
+            android:contentDescription="@string/add_media"
+            android:tint="@color/text_secondary" />
+
+        <View android:layout_width="1dp" android:layout_height="24dp"
+            android:background="@color/border_dim" android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"/>
+
+        <!-- Export button -->
+        <Button
+            android:id="@+id/btnExport"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:text="@string/export"
+            android:textSize="13sp"
+            
+            android:background="@drawable/bg_btn_export"
+            android:textColor="@color/white"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════
+         LEFT SIDEBAR
+    ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/sidebarLeft"
+        android:layout_width="54dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:background="@color/bg_panel"
+        android:elevation="2dp"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintBottom_toTopOf="@id/toolbarLayout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton android:id="@+id/sbMedia"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_media"
+            android:selected="true" />
+
+        <ImageButton android:id="@+id/sbText"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_text" />
+
+        <ImageButton android:id="@+id/sbFx"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_fx" />
+
+        <ImageButton android:id="@+id/sbAudio"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_audio" />
+
+        <ImageButton android:id="@+id/sbBackground"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_background" />
+
+        <View android:layout_width="30dp" android:layout_height="1dp"
+            android:background="@color/border_dim" android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"/>
+
+        <ImageButton android:id="@+id/sbKeyframes"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_keyframe" />
+
+        <!-- Spacer -->
+        <View android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1"/>
+
+        <ImageButton android:id="@+id/sbSettings"
+            style="@style/SidebarButton"
+            android:src="@drawable/ic_settings" />
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════
+         CENTER: PREVIEW + TOOLBAR + TIMELINE
+    ══════════════════════════════════════════ -->
+
+    <!-- PREVIEW AREA -->
+    <FrameLayout
+        android:id="@+id/previewArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/bg_void"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintStart_toEndOf="@id/sidebarLeft"
+        app:layout_constraintEnd_toStartOf="@id/propertiesPanel"
+        app:layout_constraintBottom_toTopOf="@id/toolbarLayout">
+
+        <!-- Preview container (pinch/pan target) -->
+        <FrameLayout
+            android:id="@+id/previewContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- Video canvas -->
+            <FrameLayout
+                android:id="@+id/previewCanvas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/black"
+                android:elevation="2dp">
+
+                <!-- ExoPlayer PlayerView -->
+                <androidx.media3.ui.PlayerView
+                    android:id="@+id/playerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:use_controller="false"
+                    app:surface_type="texture_view" />
+
+                <!-- Layers: text, stickers, PiP draggable on top -->
+                <FrameLayout
+                    android:id="@+id/canvasLayersContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <!-- Snap guide H -->
+                <View
+                    android:id="@+id/snapGuideH"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="#996C8FFF"
+                    android:visibility="gone" />
+
+                <!-- Snap guide V -->
+                <View
+                    android:id="@+id/snapGuideV"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#996C8FFF"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <!-- Zoom percent label -->
+        <TextView
+            android:id="@+id/tvZoomPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_margin="10dp"
+            android:text="100%"
+            android:textSize="11sp"
+            android:textColor="@color/text_muted"
+            android:background="@drawable/bg_chip_dark"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+
+        <!-- Fullscreen button -->
+        <ImageButton
+            android:id="@+id/btnFullscreen"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_fullscreen"
+            android:background="@drawable/bg_chip_dark"
+            android:tint="@color/text_secondary"
+            android:contentDescription="Fullscreen" />
+
+        <!-- Playback controls bar -->
+        <LinearLayout
+            android:id="@+id/playbackControls"
+            android:layout_width="wrap_content"
+            android:layout_height="52dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:background="@drawable/bg_playback_bar">
+
+            <!-- Skip to start -->
+            <ImageButton android:id="@+id/btnSkipStart"
+                style="@style/PlaybackButton"
+                android:src="@drawable/ic_skip_start" />
+
+            <!-- Skip back -->
+            <ImageButton android:id="@+id/btnSkipBack"
+                style="@style/PlaybackButton"
+                android:src="@drawable/ic_skip_back" />
+
+            <!-- Play / Pause -->
+            <ImageButton
+                android:id="@+id/btnPlay"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/ic_play"
+                android:background="@drawable/bg_btn_play"
+                android:tint="@color/white"
+                android:contentDescription="Play" />
+
+            <!-- Skip forward -->
+            <ImageButton android:id="@+id/btnSkipForward"
+                style="@style/PlaybackButton"
+                android:src="@drawable/ic_skip_forward" />
+
+            <!-- Skip to end -->
+            <ImageButton android:id="@+id/btnSkipEnd"
+                style="@style/PlaybackButton"
+                android:src="@drawable/ic_skip_end" />
+
+            <View android:layout_width="1dp" android:layout_height="20dp"
+                android:background="@color/border_dim" android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"/>
+
+            <!-- Timecode current -->
+            <TextView
+                android:id="@+id/tvTimecode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00.00"
+                android:textSize="12sp"
+                
+                android:textColor="@color/text_secondary" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text=" / " android:textColor="@color/text_muted" android:textSize="12sp"/>
+
+            <!-- Timecode total -->
+            <TextView
+                android:id="@+id/tvTimecodeTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:30.00"
+                android:textSize="12sp"
+                
+                android:textColor="@color/text_muted" />
+
+            <View android:layout_width="1dp" android:layout_height="20dp"
+                android:background="@color/border_dim" android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"/>
+
+            <!-- Volume master -->
+            <ImageButton android:id="@+id/btnVolumeMaster"
+                style="@style/PlaybackButton"
+                android:src="@drawable/ic_volume" />
+
+        </LinearLayout>
+
+        <!-- Fullscreen overlay -->
+        <FrameLayout
+            android:id="@+id/fullscreenOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:visibility="gone" />
+
+        <!-- Crop overlay -->
+        <com.nebula.editor.ui.editor.CropOverlayView
+            android:id="@+id/cropOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <!-- Recording indicator -->
+        <LinearLayout
+            android:id="@+id/recordingIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bg_record_pill"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:visibility="gone">
+
+            <View android:layout_width="10dp" android:layout_height="10dp"
+                android:background="@drawable/ic_record_dot"
+                android:layout_marginEnd="8dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="REC" android:textColor="#FFFF4444" android:textSize="12sp"
+                />
+
+            <ImageButton
+                android:id="@+id/btnStopRecord"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_stop"
+                android:background="@drawable/bg_btn_icon"
+                android:tint="@color/text_secondary"
+                android:layout_marginStart="12dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <!-- ══════════════════════════════════════════
+         RIGHT: PROPERTIES PANEL
+    ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/propertiesPanel"
+        android:layout_width="260dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="@color/bg_panel"
+        android:elevation="2dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/topBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/toolbarLayout">
+
+        <!-- Panel header -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="42dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingStart="14dp" android:paddingEnd="8dp"
+            android:background="@color/bg_panel">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="PROPERTIES"
+                android:textSize="11sp" 
+                android:textColor="@color/text_secondary" android:letterSpacing="0.05"/>
+            <ImageButton android:id="@+id/btnCloseProperties"
+                android:layout_width="28dp" android:layout_height="28dp"
+                android:src="@drawable/ic_close" android:background="@drawable/bg_btn_icon"
+                android:tint="@color/text_muted"/>
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@color/border_dim"/>
+
+        <!-- Scrollable properties -->
+        <ScrollView android:layout_width="match_parent" android:layout_height="0dp"
+            android:layout_weight="1" android:scrollbars="none">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="14dp">
+
+                <!-- Volume -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="VOLUME" style="@style/PropLabel"/>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderVolume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0" android:valueTo="500"
+                    android:value="100"
+                    app:thumbColor="@color/accent_nova"
+                    app:trackColorActive="@color/accent_nova"
+                    app:trackColorInactive="@color/bg_card"/>
+
+                <!-- Opacity -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="OPACITY" style="@style/PropLabel" android:layout_marginTop="12dp"/>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderOpacity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0" android:valueTo="100"
+                    android:value="100"
+                    app:thumbColor="@color/accent_nova"
+                    app:trackColorActive="@color/accent_nova"
+                    app:trackColorInactive="@color/bg_card"/>
+
+                <!-- Scale -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="SCALE" style="@style/PropLabel" android:layout_marginTop="12dp"/>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderScale"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="10" android:valueTo="300"
+                    android:value="100"
+                    app:thumbColor="@color/accent_nova"
+                    app:trackColorActive="@color/accent_nova"
+                    app:trackColorInactive="@color/bg_card"/>
+
+                <!-- Rotation -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="ROTATION" style="@style/PropLabel" android:layout_marginTop="12dp"/>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderRotation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="-180" android:valueTo="180"
+                    android:value="0"
+                    app:thumbColor="@color/accent_nova"
+                    app:trackColorActive="@color/accent_nova"
+                    app:trackColorInactive="@color/bg_card"/>
+
+                <!-- Fade In -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="FADE IN" style="@style/PropLabel" android:layout_marginTop="12dp"/>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderFadeIn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0" android:valueTo="5000"
+                    android:value="0"
+                    app:thumbColor="@color/accent_quasar"
+                    app:trackColorActive="@color/accent_quasar"
+                    app:trackColorInactive="@color/bg_card"/>
+
+                <!-- Fade Out -->
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="FADE OUT" style="@style/PropLabel" android:layout_marginTop="12dp"/>
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/sliderFadeOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:valueFrom="0" android:valueTo="5000"
+                    android:value="0"
+                    app:thumbColor="@color/accent_quasar"
+                    app:trackColorActive="@color/accent_quasar"
+                    app:trackColorInactive="@color/bg_card"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════
+         TOOLBAR (above timeline)
+    ══════════════════════════════════════════ -->
+    <HorizontalScrollView
+        android:id="@+id/toolbarLayout"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:scrollbars="none"
+        android:background="@color/bg_layer"
+        android:elevation="3dp"
+        app:layout_constraintStart_toEndOf="@id/sidebarLeft"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/timelinePanel">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageButton android:id="@+id/btnToolRatio"     style="@style/ToolButton" android:src="@drawable/ic_ratio"       android:contentDescription="@string/aspect_ratio"/>
+            <ImageButton android:id="@+id/btnToolCrop"      style="@style/ToolButton" android:src="@drawable/ic_crop"        android:contentDescription="@string/crop"/>
+            <ImageButton android:id="@+id/btnToolRotate"    style="@style/ToolButton" android:src="@drawable/ic_rotate"      android:contentDescription="@string/flip_rotate"/>
+
+            <View style="@style/ToolDivider"/>
+
+            <ImageButton android:id="@+id/btnToolAddAudio"  style="@style/ToolButton" android:src="@drawable/ic_audio"       android:contentDescription="@string/add_audio"/>
+            <ImageButton android:id="@+id/btnToolSplit"     style="@style/ToolButton" android:src="@drawable/ic_split"       android:contentDescription="@string/split"/>
+            <ImageButton android:id="@+id/btnToolReverse"   style="@style/ToolButton" android:src="@drawable/ic_reverse"     android:contentDescription="@string/reverse"/>
+            <ImageButton android:id="@+id/btnToolBackground" style="@style/ToolButton" android:src="@drawable/ic_background" android:contentDescription="@string/background"/>
+
+            <View style="@style/ToolDivider"/>
+
+            <ImageButton android:id="@+id/btnToolReplace"   style="@style/ToolButton" android:src="@drawable/ic_replace"    android:contentDescription="@string/replace"/>
+            <ImageButton android:id="@+id/btnToolDuplicate" style="@style/ToolButton" android:src="@drawable/ic_duplicate"  android:contentDescription="@string/duplicate"/>
+            <ImageButton android:id="@+id/btnToolCopy"      style="@style/ToolButton" android:src="@drawable/ic_copy"       android:contentDescription="@string/copy"/>
+            <ImageButton android:id="@+id/btnToolFreeze"    style="@style/ToolButton" android:src="@drawable/ic_freeze"     android:contentDescription="@string/freeze"/>
+            <ImageButton android:id="@+id/btnToolPip"       style="@style/ToolButton" android:src="@drawable/ic_pip"        android:contentDescription="@string/pip"/>
+            <ImageButton android:id="@+id/btnToolStickers"  style="@style/ToolButton" android:src="@drawable/ic_sticker"    android:contentDescription="@string/stickers"/>
+
+            <View style="@style/ToolDivider"/>
+
+            <ImageButton android:id="@+id/btnToolSpeed"     style="@style/ToolButton" android:src="@drawable/ic_speed"      android:contentDescription="@string/speed_control"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- ══════════════════════════════════════════
+         TIMELINE PANEL
+    ══════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/timelinePanel"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:orientation="vertical"
+        android:background="@color/bg_deep"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/sidebarLeft"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Timeline header row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:background="@color/bg_panel">
+
+            <!-- Magnet -->
+            <ImageButton
+                android:id="@+id/btnMagnet"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_magnet"
+                android:background="@drawable/bg_btn_icon"
+                android:tint="@color/accent_nova"
+                android:contentDescription="@string/magnet_snap" />
+
+            <!-- Zoom out -->
+            <ImageButton
+                android:id="@+id/btnZoomOut"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_zoom_out"
+                android:background="@drawable/bg_btn_icon"
+                android:tint="@color/text_muted"
+                android:contentDescription="@string/zoom_out" />
+
+            <!-- Zoom label -->
+            <TextView
+                android:id="@+id/tvZoomLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1x"
+                android:textSize="11sp"
+                android:textColor="@color/text_muted"
+                android:minWidth="28dp"
+                android:gravity="center"
+                 />
+
+            <!-- Zoom in -->
+            <ImageButton
+                android:id="@+id/btnZoomIn"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_zoom_in"
+                android:background="@drawable/bg_btn_icon"
+                android:tint="@color/text_muted"
+                android:contentDescription="@string/zoom_in" />
+
+            <!-- Add track -->
+            <Button
+                android:id="@+id/btnAddTrack"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:text="@string/add_track"
+                android:textSize="11sp"
+                android:background="@drawable/bg_btn_outline"
+                android:textColor="@color/text_secondary"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginStart="4dp" />
+
+            <View android:layout_width="0dp" android:layout_height="1dp"
+                android:layout_weight="1"/>
+
+            <!-- Total duration -->
+            <TextView
+                android:id="@+id/tvTotalDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:30.00"
+                android:textSize="11sp"
+                
+                android:textColor="@color/text_muted" />
+
+        </LinearLayout>
+
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="@color/border_dim"/>
+
+        <!-- Timeline scroll area (horizontal + vertical) -->
+        <HorizontalScrollView
+            android:id="@+id/timelineScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="horizontal">
+
+            <LinearLayout
+                android:id="@+id/timelineInner"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!-- Ruler -->
+                <FrameLayout
+                    android:id="@+id/timelineRuler"
+                    android:layout_width="wrap_content"
+                    android:layout_height="22dp"
+                    android:background="@color/bg_panel"/>
+
+                <!-- Tracks container (vertical scroll inside) -->
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/timelineTracksContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical" />
+
+                </ScrollView>
+
+                <!-- Playhead overlay -->
+                <View
+                    android:id="@+id/playheadView"
+                    android:layout_width="2dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/accent_flare"
+                    android:elevation="6dp" />
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
