@@ -169,7 +169,7 @@ dependencies {
     // ── FFmpegKit ─────────────────────────────────────────────
     // com.arthenica:ffmpeg-kit-full:6.0-2 حُذف من Maven Central مايو 2025
     // الفورك الرسمي المدعوم من مجتمع ffmpeg-kit على mavenCentral:
-    implementation 'com.arthenica:ffmpeg-kit-full:6.0-2.LTS'
+    implementation 'com.arthenica:ffmpeg-kit-full:6.0.LTS'
 
     // ── Media3 / ExoPlayer ────────────────────────────────────
     implementation 'androidx.media3:media3-exoplayer:1.3.1'
@@ -182,7 +182,7 @@ dependencies {
 
     // ── YoutubeDL-Android ─────────────────────────────────────
     // com.github.yausername نقل المشروع — الرابط الصحيح الآن:
-    implementation 'com.github.yausername:youtubedl-android:0.17.2'
+    implementation 'com.github.yausername:youtubedl-android:0.14.0'
     // ffmpeg module من youtubedl محذوف لتجنب تعارض .so مع ffmpegkit
 
     // ── Glide ─────────────────────────────────────────────────
@@ -205,7 +205,7 @@ dependencies {
     implementation 'com.github.skydoves:colorpickerview:2.3.0'
 
     // ── Root Detection (jitpack) ──────────────────────────────
-    implementation 'com.scottyab:rootbeer:0.1.0'
+    implementation 'com.scottyab:rootbeer-lib:0.1.2'
 
     // ── Lottie ────────────────────────────────────────────────
     implementation 'com.airbnb.android:lottie:6.4.0'
